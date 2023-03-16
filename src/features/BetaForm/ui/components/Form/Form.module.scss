@@ -1,0 +1,22 @@
+.Form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    span {
+      font-size: 24px;
+      font-family: BebasNeue, sans-serif;
+      font-weight: 700;
+    }
+  }
+
+  .submit {
+    margin-top: 6px;
+    width: 150px;
+  }
+}

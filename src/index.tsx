@@ -1,19 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import App from './app/App';
+import { BrowserRouter } from 'react-router-dom';
+import { Config, DAppProvider, Goerli, Mainnet } from '@usedapp/core';
+import { getDefaultProvider } from 'ethers';
+import { ModalProvider } from 'react-modal-hook';
+import { StoreProvider } from './app/providers/StoreProvider';
+
+const config: Config = {
+    readOnlyChainId: Mainnet.chainId,
+    readOnlyUrls: {
+        [Mainnet.chainId]: getDefaultProvider('mainnet'),
+        [Goerli.chainId]: getDefaultProvider('goerli'),
+    },
+};
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    document.getElementById('root') as HTMLElement
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+root.render(
+    <React.StrictMode>
+        <StoreProvider>
+            <DAppProvider config={config}>
+                <ModalProvider>
+                    <BrowserRouter>
+                        <App/>
+                    </BrowserRouter>
+                </ModalProvider>
+            </DAppProvider>
+        </StoreProvider>
+    </React.StrictMode>
+);

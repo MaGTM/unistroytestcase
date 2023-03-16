@@ -1,0 +1,25 @@
+.Input {
+  border-radius: 30px;
+  outline: transparent;
+  border: 1px solid var(--white-color);
+  font-family: Avenir, sans-serif;
+  font-size: 14px;
+  color: var(--white-color);
+  background-color: transparent;
+  padding: 12px 18px;
+
+  &:disabled {
+    opacity: 0.5;
+  }
+
+  &:focus {
+    border: 1px solid var(--orange-color);
+  }
+
+  &::placeholder {
+    font-family: Avenir, sans-serif;
+    font-size: 14px;
+    color: var(--white-color);
+    opacity: 0.5;
+  }
+}

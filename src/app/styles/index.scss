@@ -1,0 +1,13 @@
+@import "fonts";
+@import "reset";
+@import "colors";
+
+
+body {
+  background-color: var(--bg-color);
+}
+
+.App {
+  padding: 14px 64px;
+  color: var(--white-color);
+}

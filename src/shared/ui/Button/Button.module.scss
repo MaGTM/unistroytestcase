@@ -1,0 +1,19 @@
+.Button {
+  border-radius: 30px;
+  font-family: BebasNeue, sans-serif;
+  color: var(--white-color);
+  outline: transparent;
+  border: none;
+  padding: 10px 24px;
+  background-color: var(--orange-color);
+  font-size: 18px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--dark-orange-color);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
