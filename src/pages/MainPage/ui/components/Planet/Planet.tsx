@@ -1,29 +1,25 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import s from './Planet.module.scss';
 import PlanetImg from 'shared/assets/images/only planet.png';
 import Orbits from 'shared/assets/images/orbits.png';
+import { useMousePosition } from '../../../../../shared/lib/hooks/useMousePosition';
 
 const Planet = () => {
     const [coordinates, setCoordinates] = useState({ x: 285, y: 285 });
+    const [isHover, setIsHover] = useState(false);
 
-    const moveToMouseHandler = useCallback((e: MouseEvent) => {
-        const MOUSE_OFFSET_X = 597;
-        const MOUSE_OFFSET_Y = 113;
-        const xCoord = e.pageX - MOUSE_OFFSET_X;
-        const yCoord = e.pageY - MOUSE_OFFSET_Y;
-
-        if((0 < yCoord && yCoord < 570) && (162 < xCoord && xCoord < 570)) {
-            setCoordinates((prevState) => ({ ...prevState, x: xCoord, y:  yCoord }));
-        }
-
-        if(yCoord < 0 || yCoord > 570 || xCoord < 162 || xCoord > 570) {
-            setCoordinates((prevState) => ({ ...prevState, x: 285, y:  285 }));
-        }
-    }, []);
+    const { x, y } = useMousePosition();
 
     useEffect(() => {
-        document.addEventListener('mousemove', moveToMouseHandler);
-    }, []);
+        const timeOut = setTimeout(() => {
+            if(isHover) setCoordinates({ x: x - 598, y:  y - 114 });
+            if(!isHover) setCoordinates({ x: 285, y:  285 });
+        }, 50);
+
+        return () => {
+            clearTimeout(timeOut);
+        };
+    }, [x, y]);
 
 
     return (
@@ -61,23 +57,28 @@ const Planet = () => {
                     id={s.objectTwo}
                 />
             </svg>
-            <svg viewBox={'0 0 570 570'} className={s.coloredText} fill={'black'}>
+            <svg viewBox={'0 0 800 570'} className={s.coloredText} fill={'black'}>
                 <mask id={'mask'}>
                     <ellipse
                         fill={'white'}
                         rx={160}
                         ry={162}
-                        cx={coordinates.x}
+                        cx={coordinates.x + 115}
                         cy={coordinates.y}
                     />
                 </mask>
-                <text mask={'url(#mask)'} x={'2.5%'} y={'46.1%'}>
-                    own planet
+                <text mask={'url(#mask)'} x={'-10%'} y={'46.1%'}>
+                    your own planet
                 </text>
-                <text mask={'url(#mask)'} x={'-17.16%'} y={'71.5%'}>
+                <text mask={'url(#mask)'} x={'2%'} y={'71.5%'}>
                     metaverse
                 </text>
             </svg>
+            <div
+                className={s.boundary}
+                onMouseEnter={() => setIsHover(true)}
+                onMouseLeave={() => setIsHover(false)}
+            />
         </div>
     );
 };
