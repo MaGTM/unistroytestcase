@@ -2,6 +2,7 @@ import { type RouteProps } from 'react-router-dom';
 import { MainPage } from 'pages/MainPage';
 import React from 'react';
 import { ProfilePage } from 'pages/ProfilePage';
+import { PrivateRoute } from '../../ui';
 
 enum AppRoutes {
     MAIN = 'main',
@@ -20,6 +21,6 @@ export const routerConfig: Record<AppRoutes, RouteProps> = {
     },
     [AppRoutes.PROFILE]: {
         path: RoutePaths.profile,
-        element: <ProfilePage />
+        element: <PrivateRoute component={ProfilePage} />,
     }
 };

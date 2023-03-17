@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { IParticipantList } from '../../../shared/types/IParticipant';
 
-// Define a service using a base URL and expected endpoints
 export const betaApi = createApi({
     reducerPath: 'betaApi',
     baseQuery: fetchBaseQuery(
@@ -9,8 +9,19 @@ export const betaApi = createApi({
         }
     ),
     endpoints: (build) => ({
-        getParticipants: build.query<unknown, unknown>({
+        getParticipants: build.query<IParticipantList, number>({
             query: (page) => ({ url: `data?page=${page}&perPage=20` }),
+            serializeQueryArgs: ({ endpointName }) => {
+                return endpointName;
+            },
+            // Always merge incoming data to the cache entry
+            merge: (currentCache, newItems) => {
+                currentCache.items.push(...newItems.items);
+            },
+            // Refetch when the page arg changes
+            forceRefetch({ currentArg, previousArg }) {
+                return currentArg !== previousArg;
+            },
         })
     }),
 });

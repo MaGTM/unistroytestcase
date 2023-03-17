@@ -1,3 +1,24 @@
 .FilledData {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  .item {
+    span {
+      font-family: BebasNeue, sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 120%;
+    }
+    p {
+      font-family: BebasNeue, sans-serif;
+      font-weight: 700;
+      font-size: 32px;
+      color: var(--orange-color);
+      line-height: 120%;
+    }
+  }
 
+  button {
+    margin-top: 6px;
+  }
 }

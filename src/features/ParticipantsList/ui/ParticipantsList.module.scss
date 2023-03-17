@@ -1,0 +1,80 @@
+.ParticipantsList {
+  width: 670px;
+
+  h2 {
+    font-family: BebasNeue, sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 120%;
+    margin-bottom: 36px;
+  }
+
+  .list {
+    .gridItem {
+      display: grid;
+      grid-template-columns: 30% 30% 30%;
+      column-gap: 5%;
+      position: relative;
+
+
+      &:after {
+        position: absolute;
+        display: block;
+        content: ' ';
+        background-color: var(--white-color);
+        width: 100%;
+        height: 1px;
+        left: 0;
+        bottom: -17px;
+      }
+    }
+
+    .title {
+      margin-bottom: 32px;
+      span {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 120%;
+        font-family: BebasNeue, sans-serif;
+      }
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      overflow-y: scroll;
+      max-height: 535px;
+      width: 704px;
+      padding-right: 30px;
+
+      .currentUser {
+        cursor: pointer;
+        #cross {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          cursor: pointer;
+        }
+        span {
+          color: var(--orange-color);
+        }
+      }
+
+      .item {
+        span {
+          overflow-x: hidden;
+          font-size: 14px;
+          font-family: Avenir, sans-serif;
+          font-weight: 400;
+          text-overflow: ellipsis;
+
+          &:last-child {
+            margin-right: 30px;
+          }
+        }
+      }
+    }
+  }
+}

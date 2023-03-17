@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { betaApi } from 'widgets/Beta/api/betaApi';
+import profileReducer from 'pages/ProfilePage/model/slices/profileSlice';
 
 
 
 export const store = configureStore({
     reducer: {
+        profile: profileReducer,
         [betaApi.reducerPath]: betaApi.reducer,
     },
 

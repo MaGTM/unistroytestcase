@@ -1,6 +1,7 @@
 @import "fonts";
 @import "reset";
 @import "colors";
+@import "scroll";
 
 
 body {
@@ -10,4 +11,5 @@ body {
 .App {
   padding: 14px 64px;
   color: var(--white-color);
+  overflow: hidden;
 }

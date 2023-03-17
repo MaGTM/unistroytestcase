@@ -19,8 +19,8 @@ module.exports = {
         sourceType: 'module'
     },
     rules: {
-        'indent': ['error', 4],
-        '@typescript-eslint/indent': ['error', 4],
+        'indent': ['error', 4, { 'SwitchCase': 1 }],
+        '@typescript-eslint/indent': ['error', 4, { 'SwitchCase': 1 }],
         'quotes': ['error', 'single'],
         '@typescript-eslint/quotes': ['error', 'single'],
         '@typescript-eslint/prefer-nullish-coalescing': 'off',

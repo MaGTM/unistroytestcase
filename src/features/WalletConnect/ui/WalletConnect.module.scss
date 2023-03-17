@@ -1,9 +1,13 @@
 .WalletConnect {
-  a {
+  p {
     color: var(--orange-color);
     text-overflow: ellipsis;
     max-width: 145px;
     overflow-x: hidden;
     display: block;
+    font-family: BebasNeue, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: default;
   }
 }

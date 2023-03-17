@@ -15,5 +15,10 @@
 
   &:disabled {
     opacity: 0.5;
+    cursor: default;
+
+    &:hover {
+      background-color: var(--orange-color);
+    }
   }
 }
