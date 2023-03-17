@@ -2,16 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './app/App';
 import { BrowserRouter } from 'react-router-dom';
-import { Config, DAppProvider, Goerli, Mainnet } from '@usedapp/core';
-import { getDefaultProvider } from 'ethers';
+import { Config, DAppProvider, Mainnet } from '@usedapp/core';
 import { ModalProvider } from 'react-modal-hook';
 import { StoreProvider } from './app/providers/StoreProvider';
 
 const config: Config = {
     readOnlyChainId: Mainnet.chainId,
     readOnlyUrls: {
-        [Mainnet.chainId]: getDefaultProvider('mainnet'),
-        [Goerli.chainId]: getDefaultProvider('goerli'),
+        [Mainnet.chainId]: 'https://mainnet.infura.io/v3/d13fe9f62a2742abb6b8bd9279e7ef00',
+        56: 'https://bsc-dataseed1.binance.org/',
     },
 };
 
