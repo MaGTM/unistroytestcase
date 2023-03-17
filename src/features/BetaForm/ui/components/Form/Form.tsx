@@ -1,11 +1,11 @@
 import React from 'react';
 import s from './Form.module.scss';
-import { Button, Input, Modal } from '../../../../../shared/ui';
+import { Button, Input, Modal } from 'shared/ui';
 import { useModal } from 'react-modal-hook';
-import { MetamaskWarning } from '../../../../../shared/modals';
+import { MetamaskWarning } from 'shared/modals';
 import { useEthers } from '@usedapp/core';
-import { useAppDispatch } from '../../../../../shared/lib/hooks/useAppDispatch';
-import { setData } from '../../../../../widgets/Beta/model/slices/profileSlice';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { setData } from 'widgets/Beta/model/slices/profileSlice';
 
 interface FormElements extends HTMLFormControlsCollection {
     name: HTMLInputElement,

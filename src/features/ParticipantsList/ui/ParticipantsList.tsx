@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import s from './ParticipantsList.module.scss';
 import classNames from 'classnames';
-import { useGetParticipantsQuery } from '../../../widgets/Beta/api/betaApi';
+import { useGetParticipantsQuery } from 'widgets/Beta/api/betaApi';
 import { useInView } from 'react-intersection-observer';
-import { useAppSelector } from '../../../shared/lib/hooks/useAppSelector';
+import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
 import { useEthers } from '@usedapp/core';
 import { ReactComponent as Cross } from 'shared/assets/icons/cross.svg';
-import { useAppDispatch } from '../../../shared/lib/hooks/useAppDispatch';
-import { removeData } from '../../../widgets/Beta/model/slices/profileSlice';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useNavigate } from 'react-router-dom';
-import { RoutePaths } from '../../../shared/config';
+import { RoutePaths } from 'shared/config';
+import { leaveParticipating } from '../../../widgets/Beta/model/slices/profileSlice';
 
 const ParticipantsList = () => {
     const [page, setPage] = useState(1);
@@ -32,7 +32,7 @@ const ParticipantsList = () => {
 
     const removeParticipantHandler = (e: React.MouseEvent) => {
         e.stopPropagation();
-        dispatch(removeData());
+        dispatch(leaveParticipating());
     };
 
     const clickHandler = (id: number) => {
@@ -51,14 +51,17 @@ const ParticipantsList = () => {
                 {
                     !isLoading &&
                     <div className={s.container}>
-                        <div
-                            className={classNames(s.gridItem, s.item, s.currentUser)}
-                        >
-                            <Cross id={s.cross} onClick={removeParticipantHandler}/>
-                            <span>{userState.name}</span>
-                            <span>{userState.email}</span>
-                            <span>{account}</span>
-                        </div>
+                        {
+                            userState.isParticipating &&
+                            <div
+                                className={classNames(s.gridItem, s.item, s.currentUser)}
+                            >
+                                <Cross id={s.cross} onClick={removeParticipantHandler}/>
+                                <span>{userState.name}</span>
+                                <span>{userState.email}</span>
+                                <span>{account}</span>
+                            </div>
+                        }
                         {
                             data?.items.map((item) => {
                                 return (

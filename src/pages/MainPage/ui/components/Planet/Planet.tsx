@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import s from './Planet.module.scss';
 import PlanetImg from 'shared/assets/images/only planet.png';
 import Orbits from 'shared/assets/images/orbits.png';
-import { useMousePosition } from '../../../../../shared/lib/hooks/useMousePosition';
+import { useMousePosition } from 'shared/lib/hooks/useMousePosition';
 
 const Planet = () => {
     const [coordinates, setCoordinates] = useState({ x: 285, y: 285 });

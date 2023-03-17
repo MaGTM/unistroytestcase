@@ -46,7 +46,7 @@ $animation-props: 30s linear infinite;
 
   .orbitObjects {
     position: absolute;
-    z-index: 4;
+    z-index: 3;
 
     #objectOne {
       animation: fadeInOne $animation-props;

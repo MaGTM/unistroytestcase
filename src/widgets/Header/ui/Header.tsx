@@ -2,7 +2,7 @@ import React from 'react';
 import s from './Header.module.scss';
 import { WalletConnect } from 'features/WalletConnect';
 import { Link } from 'react-router-dom';
-import { RoutePaths } from '../../../shared/config';
+import { RoutePaths } from 'shared/config';
 
 const Header = () => {
     return (

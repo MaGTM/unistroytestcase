@@ -2,7 +2,7 @@ import React from 'react';
 import s from './BetaForm.module.scss';
 import Form from './components/Form/Form';
 import FilledData from './components/FilledData/FilledData';
-import { useAppSelector } from '../../../shared/lib/hooks/useAppSelector';
+import { useAppSelector } from 'shared/lib/hooks/useAppSelector';
 
 const BetaForm = () => {
     const state = useAppSelector(state => state.profile);
