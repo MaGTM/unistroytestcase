@@ -5,7 +5,7 @@ import { useModal } from 'react-modal-hook';
 import { MetamaskWarning } from '../../../../../shared/modals';
 import { useEthers } from '@usedapp/core';
 import { useAppDispatch } from '../../../../../shared/lib/hooks/useAppDispatch';
-import { setData } from '../../../../../pages/ProfilePage/model/slices/profileSlice';
+import { setData } from '../../../../../widgets/Beta/model/slices/profileSlice';
 
 interface FormElements extends HTMLFormControlsCollection {
     name: HTMLInputElement,

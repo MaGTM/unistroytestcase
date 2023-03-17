@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { IParticipantList } from '../../../shared/types/IParticipant';
+import { IParticipantList } from 'shared/types/IParticipant';
 
 export const betaApi = createApi({
     reducerPath: 'betaApi',

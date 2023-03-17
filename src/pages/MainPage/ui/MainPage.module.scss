@@ -14,7 +14,8 @@
       flex-direction: column;
       gap: 45px;
       h1 {
-
+        position: relative;
+        z-index: 3;
         font-family: BebasNeue, sans-serif;
         font-size: 120px;
         font-weight: 700;

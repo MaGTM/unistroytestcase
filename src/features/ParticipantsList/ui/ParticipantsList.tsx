@@ -7,7 +7,7 @@ import { useAppSelector } from '../../../shared/lib/hooks/useAppSelector';
 import { useEthers } from '@usedapp/core';
 import { ReactComponent as Cross } from 'shared/assets/icons/cross.svg';
 import { useAppDispatch } from '../../../shared/lib/hooks/useAppDispatch';
-import { removeData } from '../../../pages/ProfilePage/model/slices/profileSlice';
+import { removeData } from '../../../widgets/Beta/model/slices/profileSlice';
 import { useNavigate } from 'react-router-dom';
 import { RoutePaths } from '../../../shared/config';
 
@@ -35,8 +35,8 @@ const ParticipantsList = () => {
         dispatch(removeData());
     };
 
-    const clickHandler = () => {
-        navigate(RoutePaths.profile);
+    const clickHandler = (id: number) => {
+        navigate(`${RoutePaths.profile}/${id}`);
     };
 
     return (
@@ -52,8 +52,7 @@ const ParticipantsList = () => {
                     !isLoading &&
                     <div className={s.container}>
                         <div
-                            className={classNames(s.gridItem, s.currentUser, s.item)}
-                            onClick={clickHandler}
+                            className={classNames(s.gridItem, s.item, s.currentUser)}
                         >
                             <Cross id={s.cross} onClick={removeParticipantHandler}/>
                             <span>{userState.name}</span>
@@ -66,6 +65,7 @@ const ParticipantsList = () => {
                                     <div
                                         className={classNames(s.gridItem, s.item)}
                                         key={item.id}
+                                        onClick={() => clickHandler(item.id)}
                                     >
                                         <span>{item.username}</span>
                                         <span>{item.email}</span>

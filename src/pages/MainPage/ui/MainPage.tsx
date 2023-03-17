@@ -2,8 +2,11 @@ import React from 'react';
 import s from './MainPage.module.scss';
 import { Header } from 'widgets/Header';
 import { Beta } from 'widgets/Beta';
+import Planet from './components/Planet/Planet';
 
 const MainPage = () => {
+
+
     return (
         <div className={s.MainPage}>
             <Header/>
@@ -36,6 +39,7 @@ const MainPage = () => {
                         </div>
                     </div>
                 </div>
+                <Planet />
             </section>
             <Beta />
         </div>
