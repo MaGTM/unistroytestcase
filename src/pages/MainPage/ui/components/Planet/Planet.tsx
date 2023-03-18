@@ -11,13 +11,11 @@ const Planet = () => {
     const { x, y } = useMousePosition();
 
     useEffect(() => {
-        const timeOut = setTimeout(() => {
-            if(isHover) setCoordinates({ x: x - 598, y:  y - 114 });
-            if(!isHover) setCoordinates({ x: 285, y:  285 });
-        }, 50);
+        if(isHover) setCoordinates({ x: x - 598, y:  y - 114 });
+        if(!isHover) setCoordinates({ x: 285, y:  285 });
 
         return () => {
-            clearTimeout(timeOut);
+            // clearTimeout(timeOut);
         };
     }, [x, y]);
 
