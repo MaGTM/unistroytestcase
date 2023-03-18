@@ -1,5 +1,5 @@
 $animation-props: 30s linear infinite;
-$planet-timing: 1s ease;
+$planet-timing: 1s linear;
 
 .Planet {
   position: absolute;
